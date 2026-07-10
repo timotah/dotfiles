@@ -1,0 +1,5 @@
+git
+stow
+bash
+curl
+wget

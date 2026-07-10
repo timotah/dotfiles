@@ -1,0 +1,36 @@
+# Swaylock appearance (aligned with sway colors)
+image=/usr/share/backgrounds/kagurabachi.JPG
+scaling=fill
+
+# Base palette
+color=1f1f1f
+inside-color=1f1f1fcc
+ring-color=5f6368cc
+line-color=00000000
+separator-color=00000000
+
+# Highlights
+key-hl-color=6b8fbf
+bs-hl-color=d14b4b
+caps-lock-key-hl-color=6b8fbf
+caps-lock-bs-hl-color=d14b4b
+
+# State colors
+inside-ver-color=1f1f1fcc
+ring-ver-color=6b8fbfcc
+inside-wrong-color=1f1f1fcc
+ring-wrong-color=d14b4bcc
+inside-clear-color=1f1f1fcc
+ring-clear-color=5f6368cc
+
+# Text
+text-color=ffffff
+text-ver-color=ffffff
+text-wrong-color=ffffff
+text-clear-color=ffffff
+
+# Simple indicator
+indicator-radius=90
+indicator-thickness=6
+show-failed-attempts
+disable-caps-lock-text

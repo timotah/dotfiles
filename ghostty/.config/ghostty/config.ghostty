@@ -1,0 +1,6 @@
+# Ghostty config
+
+theme = Catppuccin Mocha
+font-family = "JetBrainsMono Nerd Font Mono"
+window-padding-balance = true
+macos-option-as-alt = true

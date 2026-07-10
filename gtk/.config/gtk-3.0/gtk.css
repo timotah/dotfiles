@@ -1,0 +1,6 @@
+/* GTK3 Overrides - Matching Waybar/Walker Aesthetic */
+
+/* Global Font */
+* {
+    font-family: 'JetBrainsMono Nerd Font Propo', 'Font Awesome 6 Free', 'Font Awesome 6 Brands', monospace;
+}

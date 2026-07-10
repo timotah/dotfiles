@@ -1,0 +1,42 @@
+@define-color window_bg #2b303b;
+@define-color border_color rgba(100, 114, 125, 0.8);
+@define-color text_color #f8f8f2;
+
+* {
+  all: unset;
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 16px;
+}
+
+.large-icons {
+  -gtk-icon-size: 28px;
+}
+
+.box-wrapper {
+  background: rgba(43, 48, 59, 0.95);
+  border: 3px solid @border_color;
+  padding: 10px;
+  border-radius: 0;
+}
+
+.input {
+  background: rgba(43, 48, 59, 0.6);
+  border: 1px solid rgba(100, 114, 125, 0.6);
+  color: @text_color;
+  padding: 6px 8px;
+}
+
+.list {
+  color: @text_color;
+}
+
+.item-box {
+  padding: 6px 8px;
+  border-radius: 0;
+}
+
+child:selected .item-box,
+row:selected .item-box {
+  background: rgba(100, 114, 125, 0.8);
+  /* border: 1px solid rgba(100, 114, 125, 1); */
+}

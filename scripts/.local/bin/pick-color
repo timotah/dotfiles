@@ -1,0 +1,4 @@
+#!/bin/sh
+color=$(hyprpicker -n -f hex)
+wl-copy "$color"
+notify-send "Color Picked" "$color  (copied to clipboard)"

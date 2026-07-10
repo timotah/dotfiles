@@ -1,0 +1,10 @@
+# Files that should never be stowed
+README.md
+bootstrap.sh
+stow-all.sh
+unstow-all.sh
+check.sh
+switchover.sh
+packages/
+.git/
+.gitignore

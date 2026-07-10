@@ -1,0 +1,39 @@
+#!/bin/sh
+set -eu
+
+target=${1:-}
+if [ -z "$target" ]; then
+  echo "usage: screenshot-save <target>" >&2
+  exit 2
+fi
+
+pictures_dir=$(xdg-user-dir PICTURES 2>/dev/null || true)
+if [ -z "$pictures_dir" ] || [ "$pictures_dir" = "$HOME" ]; then
+  pictures_dir="$HOME/Pictures"
+fi
+
+dir="$pictures_dir/Screenshots"
+mkdir -p "$dir"
+
+timestamp=$(date "+%Y-%m-%d_%H-%M-%S")
+file="$dir/Screenshot_${timestamp}.png"
+
+if ! grimshot save "$target" "$file"; then
+  dunstify -u critical "Screenshot failed" "grimshot save $target"
+  exit 1
+fi
+
+if [ ! -s "$file" ]; then
+  dunstify -u critical "Screenshot failed" "No file written"
+  exit 1
+fi
+
+action=$(dunstify -A "open,Open Folder" -A "view,Open File" -b "Screenshot saved" "$file")
+case "$action" in
+  open)
+    thunar "$dir"
+    ;;
+  view)
+    thunar "$file"
+    ;;
+esac
