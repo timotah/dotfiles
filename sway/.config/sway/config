@@ -6,7 +6,7 @@
 # Auto-tiling splits based on window size.
 exec autotiling-rs
 # Notification daemon (not started by Fedora sway snippets)
-exec dunst
+exec_always dunst
 
 ### Appearance
 # Shared colors (also used by other includes).
