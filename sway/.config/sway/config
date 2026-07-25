@@ -43,9 +43,9 @@ set $powermenu "walker -s powermenu --nosearch --width 250 --height 300"
 set $capturemenu "walker -s screenshot --nosearch --width 250 --height 300"
 
 ### Output configuration
-# Default wallpaper (more resolutions in /usr/share/backgrounds/sway/).
-# Requires: desktop-backgrounds-compat, swaybg, jxl-pixbuf-loader.
-output * bg /usr/share/backgrounds/kagurabachi.JPG fill
+# Default wallpaper, vendored in ~/.local/share/backgrounds via dotfiles/wallpapers.
+# Requires: swaybg
+output * bg $HOME/.local/share/backgrounds/kagurabachi.JPG fill
 # Example:
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 # List outputs: swaymsg -t get_outputs
@@ -161,8 +161,5 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 ### Includes
-# Load config snippets (later overrides earlier):
-# - /usr/share/sway/config.d/*.conf
-# - /etc/sway/config.d/*.conf
-# - $XDG_CONFIG_HOME/sway/config.d/*.conf
-include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'
+# Load user-specific config snippets from the dotfiles-managed sway package.
+include $HOME/.config/sway/config.d/*.conf

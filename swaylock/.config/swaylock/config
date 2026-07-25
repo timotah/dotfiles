@@ -1,5 +1,6 @@
 # Swaylock appearance (aligned with sway colors)
-image=/usr/share/backgrounds/kagurabachi.JPG
+# Wallpaper vendored in ~/.local/share/backgrounds via dotfiles/wallpapers.
+image=$HOME/.local/share/backgrounds/kagurabachi.JPG
 scaling=fill
 
 # Base palette

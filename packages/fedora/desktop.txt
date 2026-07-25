@@ -1,3 +1,6 @@
+# Sway desktop environment packages for Fedora
+# Some tools are installed outside dnf and are annotated below
+
 sway
 swaybg
 swaylock
@@ -5,7 +8,13 @@ waybar
 dunst
 walker
 ghostty
-autotiling-rs
+
+# Installed manually via cargo/source:
+# autotiling-rs
+
+# Installed manually at /usr/local/bin:
+# starship
+
 grimshot
 grim
 slurp
@@ -15,8 +24,16 @@ libnotify
 pavucontrol
 network-manager-applet
 nm-connection-editor
-power-profiles-daemon
-thunar
+
+# Left out for now:
+# power-profiles-daemon
+
+Thunar
 xdg-user-dirs
-nordic-theme
-papirus-icon-theme
+
+# Nordic theme is installed at /usr/share/themes/Nordic
+# Install it via your preferred method (COPR, manual, etc.)
+# nordic-theme
+
+# Using default notification icons, not Papirus
+# papirus-icon-theme

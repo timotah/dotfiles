@@ -39,7 +39,9 @@
     ### Icons ###
     icon_position = left
     max_icon_size = 32
-    icon_path = /usr/share/icons/Papirus-Dark/16x16/status/:/usr/share/icons/Papirus-Dark/16x16/devices/
+    # Papirus icon theme is not installed; using default system icons.
+    # To re-enable Papirus, install it and uncomment the line below:
+    # icon_path = /usr/share/icons/Papirus-Dark/16x16/status/:/usr/share/icons/Papirus-Dark/16x16/devices/
     sticky_history = yes
     history_length = 20
 

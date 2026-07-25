@@ -55,10 +55,10 @@ left as stubs.
 
 ## Known portability notes
 
-- Sway config uses a Fedora-specific layered include at `/usr/libexec/sway/layered-include`.
-  This should be replaced with a portable include when applying Phase 5 fixes.
-- Wallpaper paths currently reference `/usr/share/backgrounds/`. The wallpaper is
-  vendored under `wallpapers/.local/share/backgrounds/` and paths should be updated
-  to `$HOME/.local/share/backgrounds/`.
-- Waybar `config.jsonc` references `mediaplayer.py` and `power_menu.xml` which do
-  not currently exist.
+- Sway config now uses a portable local include at `$HOME/.config/sway/config.d/*.conf`.
+- Wallpaper paths now reference `$HOME/.local/share/backgrounds/kagurabachi.JPG`,
+  vendored in this repo under `wallpapers/.local/share/backgrounds/`.
+- Waybar `power-profiles-daemon` module and `custom/media`/`custom/power` blocks
+  have been removed because those dependencies are not currently installed.
+- Dunst uses default system icons. To enable Papirus, install it and uncomment the
+  `icon_path` line in `dunst/.config/dunst/dunstrc`.
