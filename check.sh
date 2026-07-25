@@ -43,12 +43,31 @@ else
   MISSING=1
 fi
 
-echo "==> Checking symlinks"
-if [ -L "$HOME/.config/sway/config" ]; then
-  echo "  OK: sway config is a symlink"
-else
-  echo "  WARN: sway config is not a symlink"
-fi
+echo "==> Checking stow links"
+STOW_LINKS=(
+  "$HOME/.bashrc"
+  "$HOME/.bash_profile"
+  "$HOME/.gitconfig"
+  "$HOME/.config/sway"
+  "$HOME/.config/waybar"
+  "$HOME/.config/walker"
+  "$HOME/.config/elephant"
+  "$HOME/.config/dunst"
+  "$HOME/.config/ghostty"
+  "$HOME/.config/nvim"
+  "$HOME/.local/share/backgrounds"
+  "$HOME/.local/share/themes"
+)
+for link in "${STOW_LINKS[@]}"; do
+  if [ -L "$link" ]; then
+    echo "  OK: $link"
+  elif [ -e "$link" ]; then
+    echo "  WARN: $link exists but is not a symlink"
+  else
+    echo "  MISSING: $link"
+    MISSING=1
+  fi
+done
 
 if [ "$MISSING" -eq 1 ]; then
   echo "==> Some requirements are missing"

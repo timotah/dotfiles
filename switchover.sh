@@ -17,7 +17,8 @@ HOME_FILES=(
 for f in "${HOME_FILES[@]}"; do
   if [ -e "$f" ] && [ ! -L "$f" ]; then
     cp -a "$f" "$BACKUP_DIR/"
-    echo "Backed up $f"
+    rm -f "$f"
+    echo "Moved $f to backup"
   fi
 done
 
