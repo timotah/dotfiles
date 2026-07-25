@@ -39,6 +39,7 @@ cd ~/dotfiles
 | `fontconfig` | Font aliases |
 | `dunst` | Notification daemon config |
 | `walker` | Application launcher config |
+| `elephant` | Custom Elephant menus (power, screenshot) |
 | `sway` | Sway window manager config |
 | `swaylock` | Swaylock config |
 | `waybar` | Waybar config and style |
@@ -61,6 +62,9 @@ left as stubs.
   vendored in this repo under `wallpapers/.local/share/backgrounds/`.
 - The Nordic GTK theme is vendored in `themes/.local/share/themes/Nordic` and
   symlinked into `~/.local/share/themes/` via Stow.
+- Custom Elephant menus (`power`, `screenshot`) live in
+  `elephant/.config/elephant/menus/` and are required for Walker powermenu and
+  screenshot bindings.
 - Waybar `power-profiles-daemon` module and `custom/media`/`custom/power` blocks
   have been removed because those dependencies are not currently installed.
 - Dunst uses default system icons. To enable Papirus, install it and uncomment the

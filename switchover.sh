@@ -29,6 +29,7 @@ CONFIG_DIRS=(
   "fontconfig"
   "dunst"
   "walker"
+  "elephant"
   "sway"
   "swaylock"
   "waybar"
@@ -58,12 +59,27 @@ for s in pick-color screenshot-save; do
   fi
 done
 
-# Wallpaper
+# Wallpaper (system-level original, if present)
 src="/usr/share/backgrounds/kagurabachi.JPG"
 if [ -f "$src" ]; then
   cp -a "$src" "$BACKUP_DIR/"
   echo "Backed up wallpaper"
 fi
+
+# Local share assets that Stow will manage (only paths that would conflict)
+LOCAL_SHARE_PATHS=(
+  "$HOME/.local/share/backgrounds/kagurabachi.JPG"
+  "$HOME/.local/share/themes/Nordic"
+)
+for src in "${LOCAL_SHARE_PATHS[@]}"; do
+  if [ -e "$src" ] && [ ! -L "$src" ]; then
+    rel="${src#$HOME/}"
+    mkdir -p "$BACKUP_DIR/$(dirname "$rel")"
+    cp -a "$src" "$BACKUP_DIR/$rel"
+    rm -rf "$src"
+    echo "Moved $src to backup"
+  fi
+done
 
 echo "==> Running Stow"
 cd "$DOTFILES_DIR"

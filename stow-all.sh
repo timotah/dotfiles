@@ -13,6 +13,7 @@ PACKAGES=(
   fontconfig
   dunst
   walker
+  elephant
   sway
   swaylock
   waybar

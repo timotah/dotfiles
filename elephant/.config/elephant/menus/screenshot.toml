@@ -1,0 +1,45 @@
+name = "screenshot"
+name_pretty = "Screenshot"
+icon = "camera-photo"
+
+[[entries]]
+text = "Copy Area"
+keywords = ["copy", "area", "region"]
+icon = "crop"
+actions = { "copy" = "grimshot copy area" }
+
+[[entries]]
+text = "Save Area"
+keywords = ["save", "area", "region"]
+icon = "document-save"
+actions = { "save" = "grimshot save area" }
+
+[[entries]]
+text = "Copy Output"
+keywords = ["copy", "output", "screen"]
+icon = "video-display"
+actions = { "copy" = "grimshot copy output" }
+
+[[entries]]
+text = "Save Output"
+keywords = ["save", "output", "screen"]
+icon = "document-save"
+actions = { "save" = "grimshot save output" }
+
+[[entries]]
+text = "Copy Window"
+keywords = ["copy", "window", "active"]
+icon = "window-new"
+actions = { "copy" = "grimshot copy active" }
+
+[[entries]]
+text = "Save Window"
+keywords = ["save", "window", "active"]
+icon = "document-save"
+actions = { "save" = "grimshot save active" }
+
+[[entries]]
+text = "Pick Color"
+keywords = ["color", "pick", "hyprpicker", "picker"]
+icon = "color-select"
+actions = { "open" = "hyprpicker -n -f hex | wl-copy" }
