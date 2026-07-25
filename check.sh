@@ -36,7 +36,7 @@ for c in "${COMMANDS[@]}"; do
 done
 
 echo "==> Checking fonts"
-if fc-list | grep -qi "JetBrainsMono Nerd Font"; then
+if fc-list | grep -i "JetBrainsMono Nerd Font" >/dev/null; then
   echo "  OK: JetBrainsMono Nerd Font"
 else
   echo "  MISSING: JetBrainsMono Nerd Font"
