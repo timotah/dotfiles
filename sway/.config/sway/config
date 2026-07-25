@@ -5,6 +5,8 @@
 ### Autostart
 # Auto-tiling splits based on window size.
 exec autotiling-rs
+# Notification daemon (not started by Fedora sway snippets)
+exec dunst
 
 ### Appearance
 # Shared colors (also used by other includes).
@@ -161,5 +163,9 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 ### Includes
-# Load user-specific config snippets from the dotfiles-managed sway package.
+# Distro snippets (volume/brightness/media keys, systemd session, etc.).
+# Harmless if the paths do not exist on other distributions.
+include /usr/share/sway/config.d/*.conf
+include /etc/sway/config.d/*.conf
+# User overrides last (create files under config.d/ as needed)
 include $HOME/.config/sway/config.d/*.conf
