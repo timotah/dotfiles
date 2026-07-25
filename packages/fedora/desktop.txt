@@ -31,8 +31,8 @@ nm-connection-editor
 Thunar
 xdg-user-dirs
 
-# Nordic theme is installed at /usr/share/themes/Nordic
-# Install it via your preferred method (COPR, manual, etc.)
+# Nordic theme is vendored in this repo under themes/.local/share/themes/Nordic
+# No package installation needed
 # nordic-theme
 
 # Using default notification icons, not Papirus

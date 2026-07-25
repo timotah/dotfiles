@@ -17,6 +17,7 @@ PACKAGES=(
   swaylock
   waybar
   gtk
+  themes
   scripts
   systemd-user
   wallpapers

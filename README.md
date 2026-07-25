@@ -43,6 +43,7 @@ cd ~/dotfiles
 | `swaylock` | Swaylock config |
 | `waybar` | Waybar config and style |
 | `gtk` | GTK 3/4 theme settings |
+| `themes` | Vendored GTK themes (Nordic) |
 | `scripts` | Local bin scripts |
 | `systemd-user` | User systemd services |
 | `wallpapers` | User-local wallpapers |
@@ -58,6 +59,8 @@ left as stubs.
 - Sway config now uses a portable local include at `$HOME/.config/sway/config.d/*.conf`.
 - Wallpaper paths now reference `$HOME/.local/share/backgrounds/kagurabachi.JPG`,
   vendored in this repo under `wallpapers/.local/share/backgrounds/`.
+- The Nordic GTK theme is vendored in `themes/.local/share/themes/Nordic` and
+  symlinked into `~/.local/share/themes/` via Stow.
 - Waybar `power-profiles-daemon` module and `custom/media`/`custom/power` blocks
   have been removed because those dependencies are not currently installed.
 - Dunst uses default system icons. To enable Papirus, install it and uncomment the
