@@ -2,70 +2,106 @@
 
 Managed with GNU Stow.
 
+## Prerequisites
+
+Install `git` and `stow` through your distribution's package manager.
+
+```bash
+# Fedora
+sudo dnf install git stow
+```
+
 ## Initial setup
 
 ```bash
-git clone <repo-url> ~/dotfiles
+git clone git@github.com:timotah/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 ./bootstrap.sh
 ./stow-all.sh
 ./check.sh
 ```
 
-## To switch an existing machine over
-
-1. Back up and run the switchover script:
+To choose only some packages instead of all of them, use:
 
 ```bash
-cd ~/dotfiles
-./switchover.sh
+./stow-select.sh
 ```
 
-2. Verify everything:
+## Switching an existing machine over
 
 ```bash
+git clone git@github.com:timotah/dotfiles.git ~/dotfiles
+cd ~/dotfiles
+./switchover.sh
 ./check.sh
 ```
 
-## Stow packages
+`switchover.sh` backs up your current config and replaces it with symlinks into this repo.
 
-| Package | Purpose |
+## What is managed
+
+| Stow package | Contents |
 |---|---|
 | `shell` | `.bashrc`, `.bash_profile` |
 | `git` | `.gitconfig` |
 | `nvim` | Neovim config |
 | `ghostty` | Ghostty terminal config |
-| `starship` | Starship prompt |
+| `starship` | Starship prompt config |
 | `fontconfig` | Font aliases |
-| `dunst` | Notification daemon config |
-| `walker` | Application launcher config |
-| `elephant` | Custom Elephant menus (power, screenshot) |
-| `sway` | Sway window manager config |
-| `swaylock` | Swaylock config |
-| `waybar` | Waybar config and style |
+| `dunst` | Notification daemon |
+| `walker` | Application launcher |
+| `elephant` | Custom power + screenshot menus for Walker |
+| `sway` | Window manager config |
+| `swaylock` | Lock screen config |
+| `waybar` | Status bar |
 | `gtk` | GTK 3/4 theme settings |
-| `themes` | Vendored GTK themes (Nordic) |
-| `scripts` | Local bin scripts |
-| `systemd-user` | User systemd services |
-| `wallpapers` | User-local wallpapers |
+| `themes` | Nordic GTK theme (vendored) |
+| `scripts` | `pick-color`, `screenshot-save` |
+| `systemd-user` | Walker + Elephant services |
+| `wallpapers` | Background images |
 
-## Package manager independence
+## Scripts
 
-`bootstrap.sh` detects the distro and uses the appropriate package manager.
-Currently only the Fedora adapter is implemented. Arch and Debian adapters are
-left as stubs.
+| Script | Purpose |
+|---|---|
+| `bootstrap.sh` | Detect distro and install packages |
+| `stow-all.sh` | Symlink all packages into `$HOME` |
+| `stow-select.sh` | Interactively choose which packages to symlink |
+| `unstow-all.sh` | Remove all symlinks |
+| `check.sh` | Verify commands, fonts, and symlinks |
+| `switchover.sh` | Back up live configs and activate Stow |
 
-## Known portability notes
+## Notes for fresh installs
 
-- Sway config now uses a portable local include at `$HOME/.config/sway/config.d/*.conf`.
-- Wallpaper paths now reference `$HOME/.local/share/backgrounds/kagurabachi.JPG`,
-  vendored in this repo under `wallpapers/.local/share/backgrounds/`.
-- The Nordic GTK theme is vendored in `themes/.local/share/themes/Nordic` and
-  symlinked into `~/.local/share/themes/` via Stow.
-- Custom Elephant menus (`power`, `screenshot`) live in
-  `elephant/.config/elephant/menus/` and are required for Walker powermenu and
-  screenshot bindings.
-- Waybar `power-profiles-daemon` module and `custom/media`/`custom/power` blocks
-  have been removed because those dependencies are not currently installed.
-- Dunst uses default system icons. To enable Papirus, install it and uncomment the
-  `icon_path` line in `dunst/.config/dunst/dunstrc`.
+- `starship` and `autotiling-rs` are **not** in the default Fedora repositories. They must be installed separately if you want them.
+- `power-profiles-daemon` and `papirus-icon-theme` are intentionally left out of the main setup. Add them later if needed.
+- The Nordic GTK theme is vendored in the repo, so no separate package install is needed.
+
+## Day-to-day workflow
+
+Edit files directly inside `~/dotfiles`. Most changes take effect immediately because the live files are symlinks.
+
+After changing a service file:
+
+```bash
+systemctl --user daemon-reload
+systemctl --user restart elephant.service walker.service
+```
+
+After changing Sway config:
+
+```bash
+# Mod+Shift+c
+```
+
+Commit changes regularly:
+
+```bash
+cd ~/dotfiles
+git add -A
+git commit -m "..."
+```
+
+## Optional extensions
+
+If you want to add power profile support or Papirus notification icons later, create small install scripts or package entries and keep them in the repo.
