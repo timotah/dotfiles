@@ -4,6 +4,9 @@ set -euo pipefail
 DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
 cd "$DOTFILES_DIR"
 
+echo "==> Initializing Git submodules"
+git submodule update --init --recursive
+
 PACKAGES=(
   shell
   git

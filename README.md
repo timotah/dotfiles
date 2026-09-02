@@ -44,7 +44,7 @@ cd ~/dotfiles
 |---|---|
 | `shell` | `.bashrc`, `.bash_profile` |
 | `git` | `.gitconfig` |
-| `nvim` | Neovim config |
+| `nvim` | Neovim config (Git submodule, [timotah/nvim-config](https://github.com/timotah/nvim-config)) |
 | `ghostty` | Ghostty terminal config |
 | `starship` | Starship prompt config |
 | `fontconfig` | Font aliases |
@@ -73,6 +73,7 @@ cd ~/dotfiles
 
 ## Notes for fresh installs
 
+- This repo uses a Git submodule for Neovim. `stow-all.sh` and `switchover.sh` initialize it automatically, but if you clone manually, run `git submodule update --init --recursive`.
 - `starship` and `autotiling-rs` are **not** in the default Fedora repositories. They must be installed separately if you want them.
 - `power-profiles-daemon` and `papirus-icon-theme` are intentionally left out of the main setup. Add them later if needed.
 - The Nordic GTK theme is vendored in the repo, so no separate package install is needed.
