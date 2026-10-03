@@ -6,25 +6,13 @@ cd "$DOTFILES_DIR"
 
 # Packages that are safe to stow individually.
 # These match the directory names under the dotfiles repo.
-PACKAGES=(
-  shell
-  git
-  nvim
-  ghostty
-  starship
-  fontconfig
-  dunst
-  walker
-  elephant
-  sway
-  swaylock
-  waybar
-  gtk
-  themes
-  scripts
-  systemd-user
-  wallpapers
-)
+PACKAGES=()
+
+# Loop through directories and add them to the array
+for d in */; do
+    # Remove the trailing slash if you want just the names
+    PACKAGES+=("${d%/}")
+done
 
 SELECTED=()
 
