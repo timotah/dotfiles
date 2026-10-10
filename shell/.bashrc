@@ -48,3 +48,5 @@ alias vim='nvim'
 
 export EDITOR='nvim'
 export VISUAL='nvim'
+
+. "$HOME/.local/share/../bin/env"
