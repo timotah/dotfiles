@@ -49,4 +49,8 @@ alias vim='nvim'
 export EDITOR='nvim'
 export VISUAL='nvim'
 
+#uv script
 . "$HOME/.local/share/../bin/env"
+
+# silence tldr env calls
+export DOTENV_CONFIG_QUIET=true

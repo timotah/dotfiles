@@ -1,4 +1,5 @@
 [tools]
+codex = "latest"
 node = "26.8.1"
 "npm:@opencode/cli" = { version = "latest", allow_builds = ["@opencode/cli"] }
 python = "latest"
